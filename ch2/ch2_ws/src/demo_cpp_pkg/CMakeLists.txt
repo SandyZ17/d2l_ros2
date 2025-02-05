@@ -18,7 +18,7 @@ add_executable(learn_lambda src/learn_lambda.cpp)
 add_executable(learn_functional src/learn_functional.cpp)
 add_executable(learn_thread src/learn_thread.cpp)
 
-target_include_directories(learn_thread PUBLIC /usr/include)
+target_include_directories(learn_thread PUBLIC include)
 
 install(
     TARGETS cpp_node person_node learn_shared_ptr learn_lambda learn_functional learn_thread

@@ -12,8 +12,7 @@ find_package(std_msgs REQUIRED)
 add_executable(novel_pub src/novel_pub.cpp)
 add_executable(novel_sub src/novel_sub.cpp)
 
-target_include_directories(novel_pub PUBLIC /usr/include)
-target_include_directories(novel_sub PUBLIC /usr/include)
+target_include_directories(novel_pub PUBLIC include)
 
 ament_target_dependencies(novel_pub rclcpp)
 ament_target_dependencies(novel_pub std_msgs)
