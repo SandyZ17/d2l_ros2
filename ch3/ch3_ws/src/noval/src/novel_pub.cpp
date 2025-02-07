@@ -2,6 +2,7 @@
 #include <httplib.h>
 #include <chrono>
 #include <iostream>
+#include <queue>
 #include <functional>
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/string.hpp>
@@ -37,8 +38,12 @@ void NovelPubNode::timer_callback()
         // 日志打印
         RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
         // 发布消息
-        this->novel_publisher_->publish(message);
     }
+    else
+    {
+        message.data = "暂无更新...";
+    }
+    this->novel_publisher_->publish(message);
 }
 
 NovelPubNode::NovelPubNode(const string &node_name, const string &host, const int port, const int time_gap) : rclcpp::Node(node_name), cli_(host, port)
