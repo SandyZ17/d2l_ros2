@@ -46,7 +46,7 @@ void TurtleControlNode::on_pose_receive_(turtlesim::msg::Pose::SharedPtr pose)
     cout << "dis: " << dis << "angle:" << angle << endl;
     if (dis > this->dis_gate_)
     {
-        if (angle > this->angle_gate_)
+        if (fabs(angle) > this->angle_gate_)
         {
             msg.angular.z = fabs(angle);
         }

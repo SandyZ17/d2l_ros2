@@ -34,4 +34,6 @@ ros2 topic info /turtle1/pose -v
 ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: -1.0}}"
 # 查看接口定义
 ros2 interface show geometry_msgs/msg/Twist
+# 创建接口
+ros2 pkg create chapter_interfaces --build-type ament_cmake --dependencies rosidl_default_generators sensor_msgs --license Apache-2.0
 ```
